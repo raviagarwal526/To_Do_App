@@ -1,5 +1,9 @@
+import CustomNavbar from '@/components/CustomNavbar'
 import './globals.css'
+import 'react-toastify/dist/ReactToastify.css';
 import { Inter } from 'next/font/google'
+import Footer from '@/components/Footer'
+import { ToastContainer } from 'react-toastify';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -12,9 +16,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <h1>This is header</h1>
-        {children}
-        <h1>This is footer</h1>
+        <ToastContainer/>
+        <CustomNavbar/>
+        <div className="mt-3">{children}</div>
+        <Footer/>
       </body>
     </html>
   )
