@@ -1,3 +1,8 @@
+import ActionSection from '@/components/homepage/ActionSection'
+import ContactForm from '@/components/homepage/ContactForm'
+import FeatureSection from '@/components/homepage/FeatureSection'
+import BannerSection from '@/components/homepage/HomeBanner'
+import TestimonialSection from '@/components/homepage/TestimonialSection'
 import Image from 'next/image'
 
 export const metadata = {
@@ -6,7 +11,12 @@ export const metadata = {
 export default function Home() {
   return (
     <div>
-      <h1 className="text-5xl">Welcome to work manager</h1>
+      {/* banner section */}
+      <BannerSection/>
+      <FeatureSection/>
+      <ActionSection/>
+      <TestimonialSection/>
+      <ContactForm/>
     </div>
   )
 }
