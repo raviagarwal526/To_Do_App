@@ -12,7 +12,7 @@ const UserProvider = ({ children }) => {
     async function load() {
       try {
         const tempUser = await currentUser();
-        console.log(tempUser);
+        // console.log(tempUser);
         setUser({ ...tempUser });
       } catch (error) {
         console.log(error);

@@ -7,8 +7,8 @@ import { NextResponse } from "next/server";
 connectDB()
 // get single tasks
 export async function GET(request, { params }) {
-  const { taskId } = params;
-
+  const taskId = params.taskid;
+  console.log(taskId)
   try {
     const task = await Task.findById(taskId);
     return NextResponse.json(task);
@@ -20,7 +20,7 @@ export async function GET(request, { params }) {
 
 export async function PUT(request, { params }) {
   try {
-    const { taskId } = params;
+    const  taskId  = params.taskid;
 
     const { title, content, status } = await request.json();
 

@@ -8,9 +8,9 @@ import React, { useContext } from 'react'
 import { toast } from 'react-toastify'
 
 const CustomNavbar = () => {
-    const router = useRouter()
+  const router = useRouter()
   const context = useContext(UserContext) 
-  console.log(context)
+//   console.log(context)
 
   async function doLogout(){
     try {

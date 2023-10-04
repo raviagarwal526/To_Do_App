@@ -1,9 +1,13 @@
 import UserContext from "@/context/userContext";
 import React, { useContext } from "react";
 import { RxCross1 } from "react-icons/rx";
-const Task = ({ task, deleteTaskParent }) => {
-  const { user } = useContext(UserContext);
+import { AiFillEdit } from "react-icons/ai";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
+const Task = ({ task, deleteTaskParent}) => {
+  const { user } = useContext(UserContext);
+  const router = useRouter()
   function deleteTask(taskId) {
     // ....
     deleteTaskParent(taskId);
@@ -33,7 +37,18 @@ const Task = ({ task, deleteTaskParent }) => {
             Status: <span className="font-bold">{task.status}</span>
           </p>
           <p className="text-right">
-            Author: <span className="font-bold">{user?.name}</span>
+            <Link href={{
+              pathname:"/edit-task",
+              query:{
+                taskId:task._id
+              }
+            }}>
+              <span
+                className="shadow-lg hover:bg-gray-900 bg-gray-950 rounded-full w-9 h-9 flex justify-center items-center cursor-pointer "
+                >
+                <AiFillEdit/>
+              </span>
+          </Link>
           </p>
         </div>
       </div>

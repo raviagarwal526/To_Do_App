@@ -1,6 +1,6 @@
 "use client";
 import UserContext from "@/context/userContext";
-import { deleteTask, getTasksOfUser } from "@/services/taskService";
+import { deleteTask, editTask, getTasksOfUser } from "@/services/taskService";
 import React, { useContext, useEffect, useState } from "react";
 import Task from "./Task";
 import { toast } from "react-toastify";

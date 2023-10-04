@@ -40,7 +40,7 @@ export function middleware(request) {
 
       return NextResponse.redirect(new URL("/login", request.url));
     } else {
-      // varify...
+      // vrify...
     }
   }
 
@@ -56,6 +56,7 @@ export const config = {
     "/login",
     "/signup",
     "/add-task",
+    "/edit-task",
     "/show-tasks",
     "/profile/:path*",
     "/api/:path*",
