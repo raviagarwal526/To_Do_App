@@ -3,6 +3,10 @@
 import { getResponseMessage } from "@/helper/responseMessage"
 import { Task } from "@/models/task"
 import { NextResponse } from "next/server"
+import Jwt from "jsonwebtoken"
+import { connectDB } from "@/helper/db"
+
+connectDB()
 
 // get all tasks
 export async function GET(request){
@@ -19,10 +23,16 @@ export async function GET(request){
 
 // create tasks
 export async function POST (request){
-    const {title, content, userId} = await request.json()
+    const {title, content, userId, status} = await request.json()
+
+    // fetching userid from authToken cookie
+    const authToken = request.cookies.get("authToken")?.value
+    const data = Jwt.verify(authToken, process.env.JWT_KEY)
+    console.log(data._id)
+
     try {
         const task = new Task({
-            title, content, userId 
+            title, content, userId:data._id, status 
         })
         const createdTask = await task.save()
         return NextResponse.json(createdTask,{
